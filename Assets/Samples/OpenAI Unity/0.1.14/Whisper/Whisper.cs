@@ -7,7 +7,7 @@ namespace OpenAI
     {
         [SerializeField] private Button recordButton;
         [SerializeField] private Image progressBar;
-        [SerializeField] private Text message;
+        [SerializeField] private InputField message;
         [SerializeField] private Dropdown dropdown;
         
         private readonly string fileName = "output.wav";
