@@ -17,7 +17,7 @@ namespace OpenAI
         private OpenAIApi openai = new OpenAIApi();
 
         private List<ChatMessage> messages = new List<ChatMessage>();
-        private string prompt = "Act as a random stranger in a chat room and reply to the questions. Don't break character. Don't ever mention that you are an AI model.";
+        [SerializeField] private string prompt = "Act as a random stranger in a chat room and reply to the questions. Don't break character. Don't ever mention that you are an AI model.";
 
         private void Start()
         {
