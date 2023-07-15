@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1507,9 +1507,9 @@ MonoBehaviour:
   scroll: {fileID: 356682880}
   sent: {fileID: 8660877164928630359, guid: 53cd26a6eefa5a74086203cd118a04d3, type: 3}
   received: {fileID: 961534450149497043, guid: adc0146c2853ed1418133faaf4379eb1, type: 3}
-  prompt: Act as a npc in a game chat room and reply to the questions and in one
-    word give me the emotion that you are feeling after the dialog. Don't break character.
-    Don't ever mention that you are an AI model.
+  NPC: {fileID: 1206828604}
+  prompt: Act as a random stranger in a chat room and reply to the questions. Don't
+    break character. Don't ever mention that you are an AI model.
 --- !u!4 &499436300
 Transform:
   m_ObjectHideFlags: 0
