@@ -7,6 +7,7 @@ using ElevenLabs.Voices;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Collections;
+using Utilities.Extensions;
 
 namespace OpenAI
 {
@@ -18,6 +19,8 @@ namespace OpenAI
         
         [SerializeField] private RectTransform sent;
         [SerializeField] private RectTransform received;
+
+        public GameObject NPC;
 
         private float height;
         private OpenAIApi openai = new OpenAIApi();
@@ -172,55 +175,64 @@ namespace OpenAI
                 emotion = "HAPPY";
             }
 
+            Debug.LogWarning($"input: {inputString}");
             // Check if the input string contains any action keywords
             if (inputString.IndexOf("CAPOEIRA", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 Debug.Log("Triggering Capoeira Animation...");
                 action = "CAPOEIRA";
                 // Code to trigger the capoeira animation
+                NPC.GetComponentInChildren<Animator>().SetTrigger("Capoeira");
             }
             if (inputString.IndexOf("RAP", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 Debug.Log("Triggering Rap Animation...");
                 action = "RAP";
                 // Code to trigger the rap animation
+                NPC.GetComponentInChildren<Animator>().SetTrigger("Rapping");
             }
             if (inputString.IndexOf("WALK_AWAY", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 Debug.Log("Triggering Walk Away Animation...");
                 action = "WALK_AWAY";
                 // Code to trigger the walk away animation
+                NPC.GetComponentInChildren<Animator>().SetTrigger("Idle");
             }
         }
 
-        static void TriggerAngryAnimation()
+        public void TriggerAngryAnimation()
         {
             Debug.Log("Triggering Angry Animation...");
             // Code to trigger the angry animation
+            NPC.GetComponentInChildren<BlendShapeFaceController>().AngryExpression();
         }
 
-        static void TriggerSadAnimation()
+        public void TriggerSadAnimation()
         {
             Debug.Log("Triggering Sad Animation...");
             // Code to trigger the sad animation
+            NPC.GetComponentInChildren<BlendShapeFaceController>().SadExpression();
         }
 
-        static void TriggerNeutralAnimation()
+        public void TriggerNeutralAnimation()
         {
             Debug.Log("Triggering Neutral Animation...");
             // Code to trigger the neutral animation
+            NPC.GetComponentInChildren<BlendShapeFaceController>().NeutralExpression();
         }
 
-        static void TriggerHappyAnimation()
+        public void TriggerHappyAnimation()
         {
             Debug.Log("Triggering Happy Animation...");
             // Code to trigger the happy animation
+            NPC.GetComponentInChildren<BlendShapeFaceController>().NeutralExpression();
         }
 
-        static void TriggerSpeakingAnimation()
+        public void TriggerSpeakingAnimation()
         {
             Debug.Log("Triggering Speaking Animation...");
             // Code to trigger the speaking animation
+            NPC.GetComponentInChildren<BlendShapeFaceController>().isTalking = true;
         }
 
         private IEnumerator StopSpeakingAnimation(float clipDuration)
@@ -230,10 +242,11 @@ namespace OpenAI
             Debug.Log("Stopping Speaking Animation...");
         }
 
-        static void TriggerStopSpeakingAnimation()
+        public void TriggerStopSpeakingAnimation()
         {
             Debug.Log("Triggering Stop Speaking Animation...");
             // Code to trigger the stop speaking animation
+            NPC.GetComponentInChildren<BlendShapeFaceController>().isTalking = false;
         }
 
     }

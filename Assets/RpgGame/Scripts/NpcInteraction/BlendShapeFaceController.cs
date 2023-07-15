@@ -45,12 +45,23 @@ public class BlendShapeFaceController : MonoBehaviour
         UpdateBlendShape(face_SMR_BlendShapes, "KK Eyebrows_angry_op", eb_angry_op);
         UpdateBlendShape(face_SMR_BlendShapes, "KK Eyes_angry_op", e_angry_op);
         UpdateBlendShape(face_SMR_BlendShapes, "KK Eyes_sad_op", e_sad_op);
-        UpdateBlendShape(face_SMR_BlendShapes, "KK Mouth_angry_op", m_angry_op);
-        UpdateBlendShape(face_SMR_BlendShapes, "KK Mouth_lonely_op", m_lonely_op);
+
+        if (!isTalking)
+        {
+            UpdateBlendShape(face_SMR_BlendShapes, "KK Mouth_angry_op", m_angry_op);
+            UpdateBlendShape(face_SMR_BlendShapes, "KK Mouth_lonely_op", m_lonely_op);
+        }
+        else {
+            UpdateBlendShape(face_SMR_BlendShapes, "KK Mouth_angry_op", 0);
+            UpdateBlendShape(face_SMR_BlendShapes, "KK Mouth_lonely_op", 0);
+        }
         UpdateBlendShape(tears_SMR_BlendShapes, "Tears big", t_big);
     }
     public void NeutralExpression()
     {
+        angry = false;
+        sad = false;
+        neutral = true;
         ChangeExpression();
     }
     public void Update()
@@ -85,10 +96,16 @@ public class BlendShapeFaceController : MonoBehaviour
     }
     public void AngryExpression()
     {
+        angry = true;
+        sad = false;
+        neutral = false;
         ChangeExpression(eb_angry_op: 100f, e_angry_op: 100f, m_angry_op: 100f);
     }
     public void SadExpression()
     {
+        angry = false;
+        sad = true;
+        neutral = false;
         ChangeExpression(e_sad_op: 100f, m_lonely_op: 100f, t_big: 100f);
     }
     public void ConfusedExpression()

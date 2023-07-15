@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.rest.elevenlabs": "2.0.4",
+    "com.rest.elevenlabs": "https://github.com/RageAgainstThePixel/com.rest.elevenlabs.git#upm",
     "com.srcnalt.openai-unity": "https://github.com/srcnalt/OpenAI-Unity.git",
     "com.unity.ai.navigation": "1.1.4",
     "com.unity.cinemachine": "2.9.7",
