@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.rest.elevenlabs": "2.0.4",
     "com.srcnalt.openai-unity": "https://github.com/srcnalt/OpenAI-Unity.git",
     "com.unity.ai.navigation": "1.1.4",
     "com.unity.cinemachine": "2.9.7",
@@ -44,5 +45,15 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "OpenUPM",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.rest.elevenlabs",
+        "com.utilities"
+      ]
+    }
+  ]
 }
