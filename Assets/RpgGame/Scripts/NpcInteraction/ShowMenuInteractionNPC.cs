@@ -12,6 +12,7 @@ public class ShowMenuInteractionNPC : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") {
+            canvas.GetComponent<GameChatManager>().NPCCamera = transform.Find("CameraPoint").Find("Main Camera NPC").gameObject;
             canvas.GetComponent<ManageCanvas>().ActivateMenuPanel();
         }
     }
